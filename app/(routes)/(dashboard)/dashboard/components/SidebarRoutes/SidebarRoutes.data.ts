@@ -1,4 +1,4 @@
-import { Calendar, Car, Heart, NotepadText } from "lucide-react";
+import { Calendar, Car, Heart, NotepadText, SquareChartGantt } from "lucide-react";
 
 export const dataGeneralSidebar = [
   {
@@ -20,6 +20,13 @@ export const dataGeneralSidebar = [
 
 export const dataAdminSidebar = [
   {
-    icon: NotepadText
-  }
+    icon: SquareChartGantt,
+    label: "Manage your cars",
+    href: "/dashboard/admin/cars-manager",
+  },
+  {
+    icon: Calendar,
+    label: "All reserves",
+    href: "/dashboard/admin/all-reserves",
+  },
 ]
