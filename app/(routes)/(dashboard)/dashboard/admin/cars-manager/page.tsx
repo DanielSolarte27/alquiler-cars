@@ -3,11 +3,12 @@ import { ButtonAddCar } from "./components/ButtonAddCar";
 import { ListCars } from "./components/ListCars";
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
+import { isAdministrator } from "@/lib/isAdministrator";
 
 export default async function CarsManagerPage() {
   const { userId } = auth();
 
-  if (!userId) {
+  if (!userId || !isAdministrator(userId)) {
     return redirect("/");
   }
 
@@ -26,7 +27,7 @@ export default async function CarsManagerPage() {
         <h2 className="text-2xl font-bold">Manage your cars</h2>
         <ButtonAddCar />
       </div>
-      <ListCars cars={car}/>
+      <ListCars cars={car} />
     </div>
   );
 }
